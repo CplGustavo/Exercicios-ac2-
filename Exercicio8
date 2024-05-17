@@ -1,0 +1,210 @@
+# 1 Mudança de Cor Aleatória
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Cor Aleatória</title>
+    <style>
+        .color-box {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton">Mudar Cor</button>
+    <div id="colorBox" class="color-box"></div>
+
+    <script>
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33A1'];
+        const colorButton = document.getElementById('colorButton');
+        const colorBox = document.getElementById('colorBox');
+
+        colorButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            colorBox.style.backgroundColor = colors[randomIndex];
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+# 2 Lista de Tarefas
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa">
+    <button id="addTaskButton">Adicionar</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskList = document.getElementById('taskList');
+
+        addTaskButton.addEventListener('click', () => {
+            const taskText = taskInput.value;
+            if (taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                taskList.appendChild(li);
+                taskInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+# 3 Contador Incremental
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <button id="incrementButton">Incrementar</button>
+    <p>Contador: <span id="counter">0</span></p>
+
+    <script>
+        let count = 0;
+        const counter = document.getElementById('counter');
+        const incrementButton = document.getElementById('incrementButton');
+
+        incrementButton.addEventListener('click', () => {
+            count++;
+            counter.textContent = count;
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+#  4 Calculadora Simples
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <input type="number" id="number1" placeholder="Número 1">
+    <input type="number" id="number2" placeholder="Número 2">
+    <button id="sumButton">Somar</button>
+    <button id="subtractButton">Subtrair</button>
+    <button id="multiplyButton">Multiplicar</button>
+    <button id="divideButton">Dividir</button>
+    <p>Resultado: <span id="result"></span></p>
+
+    <script>
+        const number1 = document.getElementById('number1');
+        const number2 = document.getElementById('number2');
+        const result = document.getElementById('result');
+
+        document.getElementById('sumButton').addEventListener('click', () => {
+            if (validateInputs()) {
+                result.textContent = parseFloat(number1.value) + parseFloat(number2.value);
+            }
+        });
+
+        document.getElementById('subtractButton').addEventListener('click', () => {
+            if (validateInputs()) {
+                result.textContent = parseFloat(number1.value) - parseFloat(number2.value);
+            }
+        });
+
+        document.getElementById('multiplyButton').addEventListener('click', () => {
+            if (validateInputs()) {
+                result.textContent = parseFloat(number1.value) * parseFloat(number2.value);
+            }
+        });
+
+        document.getElementById('divideButton').addEventListener('click', () => {
+            if (validateInputs()) {
+                if (parseFloat(number2.value) === 0) {
+                    alert('Impossível dividir por zero');
+                } else {
+                    result.textContent = parseFloat(number1.value) / parseFloat(number2.value);
+                }
+            }
+        });
+
+        function validateInputs() {
+            if (!number1.value || !number2.value) {
+                alert('Por favor, insira ambos os números.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+#  5 Contador de Palavras
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palavras</title>
+</head>
+<body>
+    <textarea id="textInput" placeholder="Digite um parágrafo"></textarea>
+    <button id="countButton">Contar Palavras</button>
+    <p>Contagem de Palavras: <span id="wordCount">0</span></p>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const countButton = document.getElementById('countButton');
+        const wordCount = document.getElementById('wordCount');
+
+        countButton.addEventListener('click', () => {
+            const text = textInput.value.trim();
+            const words = text.split(/\s+/);
+            wordCount.textContent = text ? words.length : 0;
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
